@@ -19,29 +19,29 @@ public class EmployeeDAO implements DAO<Employee> {
 	}
 
 	@Override
-	public int update(Employee employee) {
+	public void update(Employee employee) {
 		String sql = "update employee set first_name = ?, last_name = ? where id=?";
-		return jdbcTemplate.update(sql, employee.getFirstName(), employee.getLastName(), employee.getId());
+		jdbcTemplate.update(sql, employee.getFirstName(), employee.getLastName(), employee.getId());
 	}
 
 	@Override
-	public int delete(Employee employee) {
+	public void delete(Employee employee) {
 		String sql = "delete from employee where id=?";
-		return jdbcTemplate.update(sql, employee.getId());
+		jdbcTemplate.update(sql, employee.getId());
 	}
 
 	@Override
 	public Employee select(int id) {
 		String sql = "select * from employee where id = ?";
 		Employee mapper = new Employee();
-		return (Employee)jdbcTemplate.queryForObject(sql,mapper,id);
+		return jdbcTemplate.queryForObject(sql,mapper,id);
 	}
 
 	@Override
 	public List<Employee> selectAll() {
 		String sql = "select * from employee";
 		Employee mapper = new Employee();
-		return (List<Employee>)jdbcTemplate.query(sql,mapper);
+		return jdbcTemplate.query(sql,mapper);
 		
 	}
 

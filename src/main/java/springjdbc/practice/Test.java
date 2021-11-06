@@ -7,7 +7,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("springjdbc/practice/config.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("src/main/springjdbc/practice/resources/config.xml");
 		PassengerDAO dao = (PassengerDAO) context.getBean("passengerDAO");
 		//create
 		Passenger passenger1 = new Passenger(1,"Matheus","Andrade");

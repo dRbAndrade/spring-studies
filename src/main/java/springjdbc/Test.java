@@ -11,6 +11,7 @@ public class Test {
 		ApplicationContext context = new ClassPathXmlApplicationContext("springjdbc/config.xml");
 		DAO<Employee> dao = (EmployeeDAO) context.getBean("employeeDAO");
 		System.out.println(dao.selectAll());
+
 	}
 
 }

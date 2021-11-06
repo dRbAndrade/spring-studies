@@ -21,29 +21,29 @@ public class PassengerDAO implements DAO<Passenger>{
 	}
 
 	@Override
-	public int update(Passenger passenger) {
+	public void update(Passenger passenger) {
 		String sql = "update passenger set first_name = ?, last_name = ? where id=?";
-		return jdbcTemplate.update(sql, passenger.getFirstName(), passenger.getLastName(), passenger.getId());
+		jdbcTemplate.update(sql, passenger.getFirstName(), passenger.getLastName(), passenger.getId());
 	}
 
 	@Override
-	public int delete(Passenger passenger) {
+	public void delete(Passenger passenger) {
 		String sql = "delete from passenger where id=?";
-		return jdbcTemplate.update(sql, passenger.getId());
+		jdbcTemplate.update(sql, passenger.getId());
 	}
 
 	@Override
 	public Passenger select(int id) {
 		String sql = "select * from passenger where id = ?";
 		Passenger mapper = new Passenger();
-		return (Passenger)jdbcTemplate.queryForObject(sql,mapper,id);
+		return jdbcTemplate.queryForObject(sql,mapper,id);
 	}
 
 	@Override
 	public List<Passenger> selectAll() {
 		String sql = "select * from passenger";
 		Passenger mapper = new Passenger();
-		return (List<Passenger>)jdbcTemplate.query(sql,mapper);
+		return jdbcTemplate.query(sql,mapper);
 		
 	}
 
