@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:c="http://www.springframework.org/schema/c"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.springframework.org/schema/beans">
+        
+        <bean name = "address" class="autowiring.Address" p:number="99" p:street="Americano" p:city="Castanhal"/>
+        
+        <bean name = "employee" class="autowiring.Employee"/>
+
+		<bean name = "reservation" class="autowiring.Reservation" p:id="123" p:time="00:10"/>
+        
+        <bean name = "customer" class="autowiring.Customer" p:name="Matheus" autowire="byType"/>
+        <context:annotation-config/>
+
+</beans>
